@@ -6,15 +6,15 @@ def run_with_shape(shape_number, grid_size):
     from_showing_graph = 0
 
     min_size_dict = {
-        1: 5,  # グライダー
-        2: 4,  # ブロック
-        3: 6,  # ビーハイブ
-        4: 6,  # ローフ
-        5: 5,  # ボート
-        6: 5,  # ブリンカー
-        7: 6,  # トード
-        8: 17, # パルサー
-        9: 38  # ゴスパー・グライダー・ガン
+        1: 5,  # Glider
+        2: 4,  # Block
+        3: 6,  # Beehive
+        4: 6,  # Loaf
+        5: 5,  # Boat
+        6: 5,  # Blinker
+        7: 6,  # Toad
+        8: 17, # Pulsar
+        9: 38  # Gosper Glider Gun
     }
 
     if grid_size < min_size_dict.get(shape_number, 0):
@@ -45,8 +45,7 @@ def run_with_shape(shape_number, grid_size):
     is_frozen, t, all_state = game.run(max_t, from_showing_graph)
     print(f"Simulation ended at step {t} with frozen state: {is_frozen}")
 
-def run_random():
-    size = 256
+def run_random(size=256):
     max_t = 1000
     from_showing_graph = 0
 
@@ -56,9 +55,15 @@ def run_random():
     print(f"Simulation ended at step {t} with frozen state: {is_frozen}")
 
 def main():
-    shape_number = int(input("Enter shape number (1: Glider, 2: Block, 3: Beehive, 4: Loaf, 5: Boat, 6: Blinker, 7: Toad, 8: Pulsar, 9: Gosper Glider Gun): "))
+
     grid_size = int(input("Enter grid size: "))
+
+    # キャラクターを表示させる場合
+    shape_number = int(input("Enter shape number (1: Glider, 2: Block, 3: Beehive, 4: Loaf, 5: Boat, 6: Blinker, 7: Toad, 8: Pulsar, 9: Gosper Glider Gun): "))
     run_with_shape(shape_number, grid_size)
+
+    # ランダムで行う場合
+    # run_random(grid_size)
 
 if __name__ == "__main__":
     main()
